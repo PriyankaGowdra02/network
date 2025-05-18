@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Neural theme base colors */
+    --background: 210 20% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 210 20% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 20% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 195 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 160 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 15% 30%;
+    --muted-foreground: 210 10% 70%;
+
+    --accent: 320 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 25%;
+    --input: 210 20% 20%;
+    --ring: 195 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-background: 210 20% 6%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 195 100% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 20% 12%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 210 20% 15%;
+    --sidebar-ring: 195 100% 50%;
+  }
+
+  .light {
+    --background: 210 20% 97%;
+    --foreground: 210 20% 10%;
+
+    --card: 210 20% 96%;
+    --card-foreground: 210 20% 10%;
+
+    --popover: 210 20% 96%;
+    --popover-foreground: 210 20% 10%;
+
+    --primary: 195 100% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 160 100% 40%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 15% 90%;
+    --muted-foreground: 210 10% 40%;
+
+    --accent: 320 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 80%;
+    --input: 210 20% 90%;
+    --ring: 195 100% 40%;
+
+    --sidebar-background: 210 20% 95%;
+    --sidebar-foreground: 210 20% 10%;
+    --sidebar-primary: 195 100% 40%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 210 20% 90%;
+    --sidebar-accent-foreground: 210 20% 10%;
+    --sidebar-border: 210 20% 85%;
+    --sidebar-ring: 195 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neural-dark text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .neural-grid {
+    @apply bg-neural-grid bg-[length:20px_20px];
+  }
+  
+  .glow-border {
+    @apply relative before:absolute before:inset-0 before:p-[1px] before:rounded-md before:bg-gradient-to-r before:from-neural-accent before:to-neural-pulse before:opacity-70 before:-z-10;
+  }
+  
+  .neural-card {
+    @apply bg-neural-dark-accent rounded-md border border-neural-grid-line backdrop-blur-sm;
+  }
+  
+  .data-stream {
+    @apply relative overflow-hidden;
+  }
+  
+  .data-stream::before {
+    @apply content-[''] absolute top-0 left-0 right-0 bottom-0 bg-neural-grid-line opacity-20 pointer-events-none neural-grid animate-data-flow;
+  }
+  
+  .circuit-line {
+    @apply h-px bg-gradient-to-r from-neural-accent to-transparent;
+  }
+  
+  .circuit-node {
+    @apply h-1 w-1 rounded-full bg-neural-accent shadow-[0_0_5px_theme(colors.neural.accent)];
+  }
+  
+  .pulse-effect {
+    @apply animate-circuit-pulse;
+  }
+}
